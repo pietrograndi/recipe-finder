@@ -2,6 +2,9 @@ FROM node:18
 
 WORKDIR /app
 
+# Installa il client PostgreSQL
+RUN apt-get update && apt-get install -y postgresql-client && rm -rf /var/lib/apt/lists/*
+
 COPY package*.json ./
 
 RUN npm install
@@ -10,8 +13,5 @@ COPY . .
 
 RUN npm run build
 
-# Script per attendere il database e eseguire le migrazioni
-COPY ./scripts/wait-for-it.sh /wait-for-it.sh
-RUN chmod +x /wait-for-it.sh
-
-CMD ["/bin/sh", "-c", "/wait-for-it.sh db:5432 -- npm run migrate && npm run seed && npm start"] 
+# Esegui direttamente il backend
+CMD ["npm", "run", "start"]
