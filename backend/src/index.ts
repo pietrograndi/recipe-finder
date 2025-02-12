@@ -1,21 +1,25 @@
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
+import { db } from './db'
+import { findRecipesAndIngredients } from './routes/searchRoutes'
+import { searchByIngredients } from './routes/recipesByIngredients'
 
 const fastify = Fastify({
   logger: true
 })
 
-// Registra il plugin CORS
 fastify.register(cors, {
   origin: true
 })
 
-// Esempio di route
+
 fastify.get('/', async (request, reply) => {
   return { hello: 'world' }
 })
 
-// Avvia il server
+fastify.register(findRecipesAndIngredients)
+fastify.register(searchByIngredients)
+
 const start = async () => {
   try {
     await fastify.listen({ port: 3000, host: '0.0.0.0' })
@@ -25,4 +29,4 @@ const start = async () => {
   }
 }
 
-start() 
+start()
