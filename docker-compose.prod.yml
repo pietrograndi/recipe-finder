@@ -28,7 +28,7 @@ services:
       DATABASE_NAME: my_recipe_db
       DATABASE_PORT: 5432
     ports:
-      - "3000:3000"
+      - "8080:8080"
 
   # Frontend Vite React TypeScript
   frontend:
@@ -37,7 +37,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "80:5173"
+      - "3000:3000"
 
 volumes:
   postgres_data: 
