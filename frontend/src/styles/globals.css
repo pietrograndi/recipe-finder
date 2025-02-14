@@ -1,14 +1,16 @@
+@import './_palette.css';
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--white);
+  --foreground: var(--brick);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--brick);
+    --foreground: var(--cream);
   }
-}
+} */
 
 html,
 body {
@@ -35,8 +37,8 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
+} */

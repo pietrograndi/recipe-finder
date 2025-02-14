@@ -5,4 +5,3 @@ test('to have a Autocomplete visible', async ({ page }) => {
   const combobox = page.getByRole('combobox');
   await expect(combobox).toBeVisible();
 });
-

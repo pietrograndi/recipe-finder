@@ -1,0 +1,17 @@
+:root {
+  /* brick */
+  --brick: #c14600;
+
+  /* sun */
+  --sun: #ff9d23;
+
+  /* sand */
+  --sand-400: #e5d0ac;
+  /* cream */
+  --cream-400: #fef9e1;
+  --cream-500: #f9f4e8;
+  --cream-600: #f2e9d1;
+
+  /* white */
+  --white: #ffffff;
+}
