@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { Autocomplete } from "@/components/autocomplete/Autocomplete";
+import { Autocomplete } from "@/components/autocomplete";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
