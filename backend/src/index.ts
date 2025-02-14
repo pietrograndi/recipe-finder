@@ -2,8 +2,8 @@ import Fastify from 'fastify'
 import cors from '@fastify/cors'
 import { findRecipesAndIngredients } from './routes/searchRoutes'
 import { searchByIngredients } from './routes/recipesByIngredients'
+import { port } from './envConfig'
 
-const port = parseInt(process.env.BACKEND_PORT || "8080",10)
 
 const fastify = Fastify({
   logger: true
@@ -15,6 +15,7 @@ fastify.register(cors, {
 
 
 fastify.get('/', async (request, reply) => {
+  console.log(process.env.BACKEND_PORT)
   return { hello: 'world' }
 })
 
