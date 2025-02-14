@@ -4,10 +4,11 @@ import styles from './Autocomplete.module.css';
 import cx from 'classnames';
 
 interface InputProps {
+  inputId: string
   onChange: (value: string) => void;
 }
 
-export const Input = ({ onChange }: InputProps) => {
+export const Input = ({ onChange, inputId }: InputProps) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,11 +17,16 @@ export const Input = ({ onChange }: InputProps) => {
       onChange(e.target.value);
     }, 300);
   };
+  
+  const handleClearInput = () => {
+    setInputValue('');
+    onChange('');
+  };
 
   return (
     <>
       <input
-        id="search-input"
+        id={inputId}
         placeholder="Search..."
         type="text"
         value={inputValue}
@@ -36,7 +42,7 @@ export const Input = ({ onChange }: InputProps) => {
           })}
           type="button"
           aria-hidden={inputValue.length === 0}
-          onClick={() => setInputValue('')}
+          onClick={handleClearInput}
         >
           <ClearIcon />
         </button>
