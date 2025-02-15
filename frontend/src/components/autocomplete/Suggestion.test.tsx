@@ -76,5 +76,11 @@ describe('Suggestion', () => {
     expect(screen.getByText('Ingr')).toBeInTheDocument()
     expect(screen.getByText('Ingr')).not.toHaveClass('match')
   })
+  
+  it('should render a visually hidden description', () => {
+    render(<Suggestion {...defaultProps} />)
+    
+    expect(screen.getByText('Test Description')).toBeInTheDocument()
+  })
 })
 
