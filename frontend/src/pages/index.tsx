@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { Geist, Geist_Mono } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import { Autocomplete } from '@/components/autocomplete';
+import Link from 'next/link';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -22,13 +23,21 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div
-        className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
-      >
-        <main className={styles.main}>
-          <Autocomplete />
+      <div className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`} >
+        <header>
+          <nav className={styles.navigation}>
+            <Link href="/">Home</Link>
+            <Link href="/">About</Link>
+            <Link href="/">Contact</Link>
+          </nav>
+          <section className={styles.autocompleteSection}>
+            <h1>Autocomplete</h1>
+            <Autocomplete />
+          </section>
+        </header>
+        <main> 
+        main
         </main>
-        <footer className={styles.footer}></footer>
       </div>
     </>
   );

@@ -15,16 +15,15 @@ export const Suggestion = (props: SuggestionProps) => {
   const matchList = stringMatcher(name, props.searchTerm)
   
   const matchDescription = props.searchTerm ? 
-    `Corrispondenza trovata: ${props.searchTerm} in ${name}` : 
+    `Corrispondenza trovata tra : ${props.searchTerm} in ${name}` : 
     name;
-
   return (
     <div
       className={styles.suggestion}
       tabIndex={-1}
       role="option"
       aria-selected="false"
-      aria-description={description}
+      aria-description={`${props.type === 'ingredient' ? 'Ingrediente' : 'Ricetta'} ${name} - ${description}`}
       onClick={() => props.onSelect(props.suggestion, props.type)}
       onKeyDownCapture={(e) => {
         if (e.key === 'Enter') {

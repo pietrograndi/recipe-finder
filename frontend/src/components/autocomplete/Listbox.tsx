@@ -13,12 +13,14 @@ interface SuggestionsProps {
 }
 
 export const Listbox = (props: SuggestionsProps) => {
+  const notFound = props.suggestions.ingredients.length === 0 && props.suggestions?.recipes.length === 0
   return (
     <div 
       role="listbox" 
       aria-label="Suggerimenti ricerca"
       aria-owns={props.inputId}
     >
+      {notFound && <div role="status">Nessun risultato trovato</div>}
       {props.suggestions.ingredients.length > 0 && <section>
         <div role="presentation">🥬 Ingredienti</div>
         <div>
@@ -35,7 +37,7 @@ export const Listbox = (props: SuggestionsProps) => {
           ))}
         </div>
       </section>}
-        {props.suggestions.recipes.length > 0 && props.showRecipes && <section>
+      { props.suggestions.recipes.length > 0 && props.showRecipes && <section>
         <div role="presentation">🍽️ Ricette</div>
         <div>
           {props.suggestions.recipes

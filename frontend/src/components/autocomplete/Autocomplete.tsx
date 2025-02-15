@@ -1,13 +1,12 @@
 import { Input } from './Input';
 import styles from './style.module.css';
-import { useSearchRecipe } from '@/hooks/useSeachRecipe';
-import { Listbox } from './Listibox';
+import { useSearchRecipe } from '@/hooks/useSearchRecipe';
+import { Listbox } from './Listbox';
 import { useEffect, useState } from 'react';
 
 export const Autocomplete = () => {
   const [showListbox, setShowListbox] = useState(false);
   const {searchRecipes, data, searchTerm, error} = useSearchRecipe()
-  
   useEffect(() => {
     if (searchTerm.length > 0 && data && !error) {
       setShowListbox(true);
