@@ -3,7 +3,7 @@ import { Input } from './Input';
 import { describe, expect, it, vi } from 'vitest';
 import { beforeEach, afterEach } from 'node:test';
 
-vi.mock('./Autocomplete.module.css', () => ({
+vi.mock('./style.module.css', () => ({
   default: {
     clearButton: 'clear-button',
     hidden: 'hidden',
@@ -12,15 +12,16 @@ vi.mock('./Autocomplete.module.css', () => ({
 
 const props = {
   onChange: vi.fn(),
+  inputId: 'search-input',
 };
 
 describe('Input', () => {
   beforeEach(() => {
-    vi.useFakeTimers(); // Attiva i timer fittizi prima di ogni test
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    vi.useRealTimers(); // Ripristina i timer reali dopo ogni test
+    vi.useRealTimers();
   });
 
   it('should render correclty', () => {
@@ -32,26 +33,6 @@ describe('Input', () => {
     );
 
     const clearButton = container.querySelector('button#clear-input');
-    expect(clearButton).toBeInTheDocument();
-    expect(clearButton).toHaveAttribute('aria-hidden', 'true');
-    expect(clearButton).toHaveClass('hidden');
-  });
-
-  it('should clear the input when the clear button is clicked', () => {
-    const { container } = render(<Input {...props} />);
-    const input = screen.getByRole('textbox');
-    let clearButton = container.querySelector('button#clear-input');
-
-    fireEvent.change(input, { target: { value: 'test' } });
-    expect(input).toHaveValue('test');
-    expect(clearButton).toBeInTheDocument();
-    expect(clearButton).toHaveAttribute('aria-hidden', 'false');
-    expect(clearButton).not.toHaveClass('hidden');
-
-    fireEvent.click(screen.getByRole('button', { name: 'Clear input' }));
-    expect(input).toHaveValue('');
-
-    clearButton = container.querySelector('button#clear-input');
     expect(clearButton).toBeInTheDocument();
     expect(clearButton).toHaveAttribute('aria-hidden', 'true');
     expect(clearButton).toHaveClass('hidden');
@@ -71,5 +52,25 @@ describe('Input', () => {
     expect(props.onChange).toHaveBeenCalled();
     
     vi.useRealTimers();
+  });
+  
+  it('should clear the input when the clear button is clicked', () => {
+    const { container } = render(<Input {...props} />);
+    const input = screen.getByRole('textbox');
+    let clearButton = container.querySelector('button#clear-input');
+
+    fireEvent.change(input, { target: { value: 'test' } });
+    expect(input).toHaveValue('test');
+    expect(clearButton).toBeInTheDocument();
+    expect(clearButton).toHaveAttribute('aria-hidden', 'false');
+    expect(clearButton).not.toHaveClass('hidden');
+
+    fireEvent.click(screen.getByRole('button', { name: 'Clear input' }));
+    expect(input).toHaveValue('');
+
+    clearButton = container.querySelector('button#clear-input');
+    expect(clearButton).toBeInTheDocument();
+    expect(clearButton).toHaveAttribute('aria-hidden', 'true');
+    expect(clearButton).toHaveClass('hidden');
   });
 });

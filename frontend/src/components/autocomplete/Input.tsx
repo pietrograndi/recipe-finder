@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ClearIcon } from '../icons/clearIcons';
-import styles from './Autocomplete.module.css';
+import styles from './style.module.css';
 import cx from 'classnames';
 
 interface InputProps {

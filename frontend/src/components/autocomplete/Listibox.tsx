@@ -1,4 +1,5 @@
 import { Ingredient, Recipe } from "@/types/interface"
+import { Suggestion } from "./Suggestion"
 
 interface SuggestionsProps {
   searchTerm: string
@@ -24,11 +25,13 @@ export const Listbox = (props: SuggestionsProps) => {
           {props.suggestions.ingredients
           .filter((item,index) => index < 5)
           .map((ingredient) => (
-            <div 
+            <Suggestion
               key={`ingredient-${ingredient.id}`}
-              tabIndex={-1}
-              role="option"
-            >{ingredient.name}</div>
+              suggestion={ingredient}
+              type="ingredient"
+              onSelect={props.onSelect}
+              searchTerm={props.searchTerm}
+            />
           ))}
         </div>
       </section>}
@@ -38,11 +41,13 @@ export const Listbox = (props: SuggestionsProps) => {
           {props.suggestions.recipes
           .filter((item,index) => index < 5)
           .map((recipe) => (
-            <div
+            <Suggestion
               key={`recipe-${recipe.id}`}
-              tabIndex={-1}
-              role="option"
-            >{recipe.name}</div>
+              suggestion={recipe}
+              type="recipe"
+              onSelect={props.onSelect}
+              searchTerm={props.searchTerm}
+            />
           ))}
         </div>
       </section>}

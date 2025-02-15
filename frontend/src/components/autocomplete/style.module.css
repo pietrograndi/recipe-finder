@@ -8,22 +8,6 @@
   border: 2px solid var(--brick);
   background-color: var(--white);
   border-radius: 5px;
-  /* transition: background-color 0.3s ease, border-color 0.3s ease, border-width 0.3s ease; */
-  /* &:focus-within {
-      background-color: var(--white);
-      border-color: var(--brick);
-      & input::placeholder {
-        color: var(--brick);
-      }
-    }
-    &:hover {
-      background-color: var(--white);
-      border-color: var(--brick);
-      border-width: 3px;
-      & input::placeholder {
-        color: var(--brick);
-      }
-    } */
 }
 
 .clearButton {
@@ -58,4 +42,32 @@
   &::placeholder {
     color: var(--brick);
   }
+}
+
+.suggestion {
+  padding: 10px;
+  border-bottom: 1px solid var(--brick);
+  &:hover {
+    background-color: var(--brick);
+    cursor: pointer;
+    font-weight: bold;
+    & .label, & .description {
+      color: var(--sun);
+      &.match {
+        color: var(--white);
+      }
+    }
+  }
+  & .label {
+    &.match {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+}
+
+.description {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--brick);
 }
