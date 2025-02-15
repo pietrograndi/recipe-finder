@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import { Geist, Geist_Mono } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
+import cx from 'classnames';
 import { Navigation } from '@/components/navigation';
+import { Search } from '@/components/Search';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,6 +31,9 @@ export default function Home() {
         </div>
       </header>
         <main> 
+          <div className={cx(styles.center)}>
+            <Search />
+          </div>
         </main>
       </div>
     </>

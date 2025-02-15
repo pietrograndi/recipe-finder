@@ -6,13 +6,12 @@
   background-color: var(--background);
   & header {
     border-bottom: 1px solid var(--foreground);
-    padding-left: 48px;
-    padding-right: 48px;
     background-color: var(--cream-400);
   }
   & main {
     flex: 1;
     background-color: var(--cream-500);
+    padding-top: 60px;
   }
   & footer {
     text-align: center;
