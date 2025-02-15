@@ -5,14 +5,13 @@
   height: 100vh;
   background-color: var(--background);
   & header {
-    flex: 1;
     border-bottom: 1px solid var(--foreground);
     padding-left: 48px;
     padding-right: 48px;
     background-color: var(--cream-400);
   }
   & main {
-    flex: 2;
+    flex: 1;
     background-color: var(--cream-500);
   }
   & footer {
@@ -22,9 +21,7 @@
     background-color: var(--cream-500);
   }
 }
-.navigation {
-  margin-bottom: 40px;
-}
+
 
 .autocompleteSection {
   & h1 {
@@ -39,6 +36,10 @@
   height: 200px;
 }
 
+.center {
+  width: 60%;
+  margin: 0 auto;
+}
 
 @media (max-width: 1440px) {
   .page {
@@ -53,6 +54,7 @@
     }
   }
 }
+
 @media (max-width: 1200px) {
   .page {
     height: 100vh;
@@ -107,6 +109,3 @@
     }
   }
 }
-
-
-
