@@ -19,11 +19,11 @@ export const Suggestion = (props: SuggestionProps) => {
     name;
   return (
     <div
-      className={styles.suggestion}
+      className={cx(styles.suggestion, { [styles.green]: props.type === 'ingredient' })}
       tabIndex={-1}
       role="option"
       aria-selected="false"
-      aria-description={`${props.type === 'ingredient' ? 'Ingrediente' : 'Ricetta'} ${name} - ${description}`}
+      aria-description={` `}
       onClick={() => props.onSelect(props.suggestion, props.type)}
       onKeyDownCapture={(e) => {
         if (e.key === 'Enter') {
@@ -31,7 +31,7 @@ export const Suggestion = (props: SuggestionProps) => {
         }
       }}
     >
-      <span className="visually-hidden">
+      <span className={styles.visuallyHidden}>
         {matchDescription}
       </span>
       

@@ -1,4 +1,5 @@
 import { Ingredient, Recipe } from "@/types/interface"
+import styles from './style.module.css';
 import { Suggestion } from "./Suggestion"
 
 interface SuggestionsProps {
@@ -16,13 +17,15 @@ export const Listbox = (props: SuggestionsProps) => {
   const notFound = props.suggestions.ingredients.length === 0 && props.suggestions?.recipes.length === 0
   return (
     <div 
+      className={styles.listbox}
       role="listbox" 
       aria-label="Suggerimenti ricerca"
       aria-owns={props.inputId}
     >
+      <div className={styles.listboxContent}>
       {notFound && <div role="status">Nessun risultato trovato</div>}
       {props.suggestions.ingredients.length > 0 && <section>
-        <div role="presentation">🥬 Ingredienti</div>
+        <div className={styles.sectionTitle + ' ' + styles.ingredients}  role="presentation">🥬 Ingredienti</div>
         <div>
           {props.suggestions.ingredients
           .filter((item,index) => index < 5)
@@ -38,7 +41,7 @@ export const Listbox = (props: SuggestionsProps) => {
         </div>
       </section>}
       { props.suggestions.recipes.length > 0 && props.showRecipes && <section>
-        <div role="presentation">🍽️ Ricette</div>
+        <div className={styles.sectionTitle} role="presentation">🍽️ Ricette</div>
         <div>
           {props.suggestions.recipes
           .filter((item,index) => index < 5)
@@ -53,6 +56,7 @@ export const Listbox = (props: SuggestionsProps) => {
           ))}
         </div>
       </section>}
+    </div>
     </div>
   )
 }
