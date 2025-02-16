@@ -43,4 +43,17 @@ describe('stringMatcher', () => {
       { label: 'd', isMatch: false },
     ])
   })
+
+  it('should handle special characters in search term correctly', () => {
+    const label = 'Hello (World)'
+    const searchTerm = '(wo'
+    const result = stringMatcher(label, searchTerm)
+    expect(result).toEqual([
+      { label: 'Hell', isMatch: false },
+      { label: 'o', isMatch: true },
+      { label: ' ', isMatch: false },
+      { label: '(Wo', isMatch: true },
+      { label: 'rld)', isMatch: false },
+    ])
+  })
 })

@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { Geist, Geist_Mono } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import cx from 'classnames';
-import { Navigation } from '@/components/Navigation';
 import { SearchContainer } from '@/components/SearchContainer';
 
 const geistSans = Geist({
@@ -25,11 +24,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`} >
-      <header>
-        <div className={styles.center}>
-          <Navigation />
-        </div>
-      </header>
         <main> 
           <div className={cx(styles.center)}>
             <SearchContainer />
