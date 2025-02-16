@@ -23,7 +23,6 @@ export const Suggestion = (props: SuggestionProps) => {
       tabIndex={-1}
       role="option"
       aria-selected="false"
-      aria-description={` `}
       onClick={() => props.onSelect(props.suggestion, props.type)}
       onKeyDownCapture={(e) => {
         if (e.key === 'Enter') {

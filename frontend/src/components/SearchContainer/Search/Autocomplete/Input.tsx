@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ClearIcon } from '../icons/clearIcons';
+import { ClearIcon } from '@/components/icons/clearIcons';
 import styles from './style.module.css';
 import cx from 'classnames';
 

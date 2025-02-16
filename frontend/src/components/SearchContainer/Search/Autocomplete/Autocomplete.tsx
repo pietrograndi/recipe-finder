@@ -4,8 +4,13 @@ import { useSearchRecipe } from '@/hooks/useSearchRecipe';
 import { Listbox } from './Listbox';
 import { useEffect, useRef, useState } from 'react';
 import useClickOutside from '@/hooks/useClickOutside';
+import { Ingredient, Recipe } from '@/types/interface';
 
-export const Autocomplete = () => {
+interface AutocompleteProps {
+  onSelect: (subject: Ingredient | Recipe, type: 'ingredient' | 'recipe') => void
+}
+
+export const Autocomplete = (props: AutocompleteProps) => {
   const [showListbox, setShowListbox] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const {searchRecipes, data, searchTerm, error} = useSearchRecipe()
@@ -19,6 +24,7 @@ export const Autocomplete = () => {
   }, [searchTerm, data, error]);
 
   useClickOutside(ref, () => setShowListbox(false));
+  
   
   return (
     <div ref={ref}>
@@ -36,7 +42,7 @@ export const Autocomplete = () => {
         suggestions={data}
         showRecipes={true}
         searchTerm={searchTerm}
-        onSelect={() => {}}
+        onSelect={props.onSelect}
       />}
     </div>
   );
