@@ -2,11 +2,14 @@ import { Input } from './Input';
 import styles from './style.module.css';
 import { useSearchRecipe } from '@/hooks/useSearchRecipe';
 import { Listbox } from './Listbox';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import useClickOutside from '@/hooks/useClickOutside';
 
 export const Autocomplete = () => {
   const [showListbox, setShowListbox] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
   const {searchRecipes, data, searchTerm, error} = useSearchRecipe()
+
   useEffect(() => {
     if (searchTerm.length > 0 && data && !error) {
       setShowListbox(true);
@@ -14,9 +17,11 @@ export const Autocomplete = () => {
       setShowListbox(false);
     }
   }, [searchTerm, data, error]);
+
+  useClickOutside(ref, () => setShowListbox(false));
   
   return (
-    <>
+    <div ref={ref}>
       <div
         className={styles.autocomplete}
         role="combobox"
@@ -33,6 +38,6 @@ export const Autocomplete = () => {
         searchTerm={searchTerm}
         onSelect={() => {}}
       />}
-    </>
+    </div>
   );
 };
