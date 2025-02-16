@@ -3,7 +3,7 @@ import styles from "./RecipeCard.module.css";
 import { FavIcon } from "../icons/favIncon";
 import { useFavorites } from "@/hooks/useFavorites";
 import cx from "classnames";
-import router from "next/router";
+import Link from "next/link";
 
 interface RecipeCardProps {
   recipe: RecipeWithIngredients;
@@ -12,7 +12,7 @@ interface RecipeCardProps {
 export const RecipeCard = ({ recipe }: RecipeCardProps) => {
   const { toggleFavorite, isFavorite } = useFavorites();
   return (
-    <div className={styles.recipeCard} onClick={() => router.push(`/recipes/${encodeURIComponent(recipe.name)}`)}>
+    <div className={styles.recipeCard}>
       <div className={styles.recipeHeader}>
         <div>
         pronto meno di 30 min
@@ -24,7 +24,11 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
         </button>
       </div>
       <div className={styles.recipeMain}>
-        <h3>{recipe.name}</h3>
+        <h3>
+          <Link href={`/recipes/${encodeURIComponent(recipe.name)}`}>
+            {recipe.name}
+          </Link>
+        </h3>
         {recipe.description && <span>{recipe.description}</span>}
         <div className={styles.ingredients}>
           {recipe.ingredients.map((ingredient) => (
