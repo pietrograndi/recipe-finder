@@ -9,7 +9,6 @@ interface RecipeResultsProps {
 
 export const RecipeResults = ({ ingredients = [] }: RecipeResultsProps) => {
   const ingredientIds = ingredients.map(ingredient => ingredient.id).join(',');
-  // const [favs, setFavs] = useLocalStorage<number[]>("fav_recipes", []);
   const { data, error, isLoading } = useFetchRecipes(ingredientIds);
   
   if(ingredients.length === 0) return <div>Search an ingredient to find recipes</div>;

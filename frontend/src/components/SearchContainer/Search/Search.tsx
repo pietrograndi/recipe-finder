@@ -4,6 +4,7 @@ import styles from './Search.module.css';
 import { Ingredient, Recipe } from '@/types/interface';
 import { ActionDispatch } from 'react';
 import { Action, addAction, removeAction } from '../state';
+import router from 'next/router';
 
 interface SearchProps {
   ingredients: Ingredient[]
@@ -16,7 +17,7 @@ export const Search = ({ingredients = [], ...props}: SearchProps) => {
       props.handleIngredient(addAction(subject))
       return
     }
-    console.log(subject)
+    router.push(`/recipes/${encodeURIComponent(subject.name)}`)
   }
   
   const handleIngredientDelete = (index: number) => {
@@ -26,7 +27,7 @@ export const Search = ({ingredients = [], ...props}: SearchProps) => {
   return (
     <section className={styles.searchContainer}>
       <div>
-        <Autocomplete onSelect={onSelect} />  
+        <Autocomplete ingredients={ingredients} onSelect={onSelect} />  
         { ingredients.length > 0 && <div className={styles.ingredientsContainer}>
           Ingredients:  
           <div>

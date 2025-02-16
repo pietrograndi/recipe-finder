@@ -7,6 +7,7 @@ import { Input } from './Input';
 import { Listbox } from './Listbox';
 
 interface AutocompleteProps {
+  ingredients: Ingredient[]
   onSelect: (subject: Ingredient | Recipe, type: 'ingredient' | 'recipe') => void
 }
 
@@ -14,7 +15,7 @@ export const Autocomplete = (props: AutocompleteProps) => {
   const [showListbox, setShowListbox] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const {search, data, searchTerm, error} = useSearch()
-
+  
   useEffect(() => {
     if (searchTerm.length > 0 && data && !error) {
       setShowListbox(true);
@@ -42,6 +43,7 @@ export const Autocomplete = (props: AutocompleteProps) => {
         showRecipes={true}
         searchTerm={searchTerm}
         onSelect={props.onSelect}
+        ingredientsIds={props.ingredients.map((ingredient) => ingredient.id)}
       />}
     </div>
   );

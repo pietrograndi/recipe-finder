@@ -3,6 +3,7 @@ import styles from './style.module.css';
 import { Suggestion } from "./Suggestion";
 
 interface SuggestionsProps {
+  ingredientsIds: number[]
   searchTerm: string
   suggestions: {
     ingredients:Ingredient[]
@@ -25,9 +26,10 @@ export const Listbox = (props: SuggestionsProps) => {
       <div className={styles.listboxContent}>
       {notFound && <div className={styles.notFound} role="status">Nessun risultato trovato</div>}
       {props.suggestions.ingredients.length > 0 && <section>
-        <div className={styles.sectionTitle + ' ' + styles.ingredients}  role="presentation">🥬 Ingredienti</div>
+        <div className={styles.sectionTitle + ' ' + styles.ingredients} role="presentation">🥬 Ingredienti</div>
         <div>
           {props.suggestions.ingredients
+          .filter((ingredient) => !props.ingredientsIds.includes(ingredient.id))
           .filter((_,index) => index < 5)
           .map((ingredient) => (
             <Suggestion

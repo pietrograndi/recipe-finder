@@ -3,7 +3,6 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from 'next/head';
 
 const RecipePage = (props: { recipe: Recipe }) => {
-  console.log(props.recipe)
   return (
     <div>
       <Head>

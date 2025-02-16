@@ -9,30 +9,10 @@
     background-color: var(--cream-400);
   }
   & main {
+    padding-top: 3rem;
     flex: 1;
     background-color: var(--cream-500);
-    padding-top: 60px;
   }
-  & footer {
-    text-align: center;
-    padding-left: 48px;
-    padding-right: 48px;
-    background-color: var(--cream-500);
-  }
-}
-
-
-.autocompleteSection {
-  & h1 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 40px;
-    text-align: center;
-  }
-  width: 60%;
-  margin: 0 auto;
-  border: 1px solid var(--foreground);
-  height: 200px;
 }
 
 .center {
@@ -43,40 +23,44 @@
 @media (max-width: 1440px) {
   .page {
     height: 100vh;
-    background-color: aquamarine;
     & header {
-      padding-left: 48px;
-      padding-right: 48px;
+      padding-left: 3rem;
+      padding-right: 3rem;
     }
     & main {
-      padding: 48px;
+      padding-top: 2rem;
+      /* padding: 48px; */
     }
+  }
+
+  .center {
+    width: 60%;
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 1200px) {
   .page {
     height: 100vh;
-    background-color: green;
     & header {
-      padding-left: 40px;
-      padding-right: 40px;
+      /* padding-left: 40px;
+      padding-right: 40px; */
     }
     & main {
-      padding: 40px;
+      /* padding: 40px; */
     }
+
   }
 }
 @media (max-width: 1024px) {
   .page {
     height: 100vh;
-    background-color: hotpink;
     & header {
       padding-left: 32px;
       padding-right: 32px;
     }
     & main {
-      padding: 32px;
+      /* padding: 32px; */
     }
   }
 }
@@ -84,13 +68,12 @@
 @media (max-width: 768px) {
   .page {
     height: 100svh;
-    background-color: hotpink;
     & header {
       padding-left: 24px;
       padding-right: 24px;
     }
     & main {
-      padding: 24px;
+      /* padding: 24px; */
     }
   }
 }
@@ -98,13 +81,16 @@
 @media (max-width: 480px) {
   .page {
     height: 100svh;
-    background-color: gold;
     & header {  
-      padding-left: 16px;
-      padding-right: 16px;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
     & main {
-      padding: 16px;
+      /* padding: .5rem; */
     }
+  }
+  .center {
+    width: 90%;
+    margin: 0 auto;
   }
 }

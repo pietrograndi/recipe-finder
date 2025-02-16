@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { Geist, Geist_Mono } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import cx from 'classnames';
-import { Navigation } from '@/components/navigation';
+import { Navigation } from '@/components/Navigation';
 import { SearchContainer } from '@/components/SearchContainer';
 
 const geistSans = Geist({
