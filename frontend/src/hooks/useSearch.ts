@@ -7,13 +7,13 @@ interface Response {
   recipesByIngredients: RecipeByIngredients[]
 }
 
-export const useSearchRecipe = () => {
+export const useSearch = () => {
   const [data, setData] = useState<Response | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const searchRecipes = async (searchTerm: string) => {
+  const search = async (searchTerm: string) => {
     if (!searchTerm.trim()) {
       setSearchTerm('');
       setData(null);
@@ -46,7 +46,7 @@ export const useSearchRecipe = () => {
     isLoading,
     error,
     searchTerm,
-    searchRecipes
+    search
   };
 };
 

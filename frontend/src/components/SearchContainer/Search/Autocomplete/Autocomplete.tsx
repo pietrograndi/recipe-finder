@@ -1,10 +1,10 @@
-import { Input } from './Input';
 import styles from './style.module.css';
-import { useSearchRecipe } from '@/hooks/useSearchRecipe';
-import { Listbox } from './Listbox';
+import { useSearch } from '@/hooks/useSearch';
 import { useEffect, useRef, useState } from 'react';
 import useClickOutside from '@/hooks/useClickOutside';
 import { Ingredient, Recipe } from '@/types/interface';
+import { Input } from './Input';
+import { Listbox } from './Listbox';
 
 interface AutocompleteProps {
   onSelect: (subject: Ingredient | Recipe, type: 'ingredient' | 'recipe') => void
@@ -13,7 +13,7 @@ interface AutocompleteProps {
 export const Autocomplete = (props: AutocompleteProps) => {
   const [showListbox, setShowListbox] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const {searchRecipes, data, searchTerm, error} = useSearchRecipe()
+  const {search, data, searchTerm, error} = useSearch()
 
   useEffect(() => {
     if (searchTerm.length > 0 && data && !error) {
@@ -25,7 +25,6 @@ export const Autocomplete = (props: AutocompleteProps) => {
 
   useClickOutside(ref, () => setShowListbox(false));
   
-  
   return (
     <div ref={ref}>
       <div
@@ -35,7 +34,7 @@ export const Autocomplete = (props: AutocompleteProps) => {
         aria-haspopup="listbox"
         aria-controls="listbox"
       >
-        <Input onChange={searchRecipes} inputId='search-input' />
+        <Input onChange={search} inputId='search-input' />
       </div>
       {(data && showListbox) && <Listbox
         inputId='search-input'

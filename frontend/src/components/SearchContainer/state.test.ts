@@ -18,5 +18,13 @@ describe('ingredientReducer', () => {
     const newState = ingredientReducer(initialState, action);
     expect(newState).toEqual([{ id: 1, name: 'Ingredient 1' }, { id: 3, name: 'Ingredient 3' }]);
   });
+
+  it('should not add an ingredient if it already exists', () => {
+    const initialState = [{ id: 1, name: 'Ingredient 1' }] as Ingredient[];
+    const ingredient = { id: 1, name: 'Ingredient 1' };
+    const action = addAction(ingredient);
+    const newState = ingredientReducer(initialState, action);
+    expect(newState).toEqual(initialState);
+  });
 });
 

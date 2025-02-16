@@ -7,11 +7,11 @@ import { ingredientReducer } from "./state";
 
 export const SearchContainer = () => {
   const [ingredientState, dispatch] = useReducer(ingredientReducer, [] as Ingredient[]);
-  
+
   return (
     <div>
       <Search ingredients={ingredientState} handleIngredient={dispatch} />
-      <RecipeResults />
+      <RecipeResults ingredients={ingredientState} />
     </div>
   )
 } 

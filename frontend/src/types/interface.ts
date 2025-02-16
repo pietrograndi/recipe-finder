@@ -12,8 +12,14 @@ export interface Ingredient {
   image?: string
 }
 
-export  interface RecipeByIngredients {
+export interface RecipeByIngredients {
   id: number,
   recipeName: string,
   ingredientName: string
 }
+
+export type RecipeResponse = {
+  id:number
+  recipeName: string
+  ingredients: Ingredient[]
+}[]

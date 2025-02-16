@@ -12,7 +12,7 @@ export async function searchByIngredients(fastify: FastifyInstance) {
     
     try {
       const recipesByIngredients = ingredients.length > 0 ? await db('recipe_ingredients')
-        .select('recipe_id as id', 'recipe_name')
+        .select('recipe_id as id', 'recipe_name as name')
         .join('recipes', 'recipe_ingredients.recipe_id', 'recipes.id')
         .join('ingredients', 'recipe_ingredients.ingredient_id', 'ingredients.id')
         .where('ingredient_id', 'in', ingredientList)
@@ -27,8 +27,9 @@ export async function searchByIngredients(fastify: FastifyInstance) {
           return {
             ...recipe,
             ingredients: ingredientsForRecipe.map(ing => ({
-              ingredientId:ing.ingredient_id, 
-              ingredientName:ing.ingredient_name,
+              id:ing.ingredient_id, 
+              name:ing.ingredient_name,
+              description:ing.description,
             })) 
           };
         }));

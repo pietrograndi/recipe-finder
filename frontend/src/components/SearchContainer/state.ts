@@ -22,6 +22,9 @@ export type Action =
 export const ingredientReducer = (state: Ingredient[], action: Action) => {
   switch (action.type) {
     case actionTypes.ADD:
+      if (state.some(ingredient => ingredient.id === action.ingredient.id)) {
+        return state;
+      }
       return [...state, action.ingredient];
     case actionTypes.REMOVE:
       return [...state.slice(0, action.index), ...state.slice(action.index + 1)];

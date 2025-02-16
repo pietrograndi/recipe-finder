@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
-import { useSearchRecipe } from './useSearchRecipe';
+import { useSearch } from './useSearch';
 
 describe('useSearchRecipe', () => {
   const mockResponse = {
@@ -20,7 +20,7 @@ describe('useSearchRecipe', () => {
   });
 
   it('should initialize with default values', () => {
-    const { result } = renderHook(() => useSearchRecipe());
+    const { result } = renderHook(() => useSearch());
 
     expect(result.current.data).toBeNull();
     expect(result.current.isLoading).toBe(false);
@@ -29,10 +29,10 @@ describe('useSearchRecipe', () => {
   });
 
   it('should handle empty search term', async () => {
-    const { result } = renderHook(() => useSearchRecipe());
+    const { result } = renderHook(() => useSearch());
 
     await act(async () => {
-      await result.current.searchRecipes('   ');
+      await result.current.search('   ');
     });
 
     expect(result.current.data).toBeNull();
@@ -46,10 +46,10 @@ describe('useSearchRecipe', () => {
       json: () => Promise.resolve(mockResponse)
     });
 
-    const { result } = renderHook(() => useSearchRecipe());
+    const { result } = renderHook(() => useSearch());
 
     await act(async () => {
-      await result.current.searchRecipes('pasta');
+      await result.current.search('pasta');
     });
 
     expect(mockFetch).toHaveBeenCalledWith(
@@ -67,10 +67,10 @@ describe('useSearchRecipe', () => {
       status: 500
     });
 
-    const { result } = renderHook(() => useSearchRecipe());
+    const { result } = renderHook(() => useSearch());
 
     await act(async () => {
-      await result.current.searchRecipes('pasta');
+      await result.current.search('pasta');
     });
 
     expect(result.current.data).toBeNull();
@@ -81,10 +81,10 @@ describe('useSearchRecipe', () => {
   it('should handle network error', async () => {
     mockFetch.mockRejectedValueOnce(new Error('Network error'));
 
-    const { result } = renderHook(() => useSearchRecipe());
+    const { result } = renderHook(() => useSearch());
 
     await act(async () => {
-      await result.current.searchRecipes('pasta');
+      await result.current.search('pasta');
     });
 
     expect(result.current.data).toBeNull();
@@ -105,10 +105,10 @@ describe('useSearchRecipe', () => {
       )
     );
 
-    const { result } = renderHook(() => useSearchRecipe());
+    const { result } = renderHook(() => useSearch());
 
     act(() => {
-      result.current.searchRecipes('pasta');
+      result.current.search('pasta');
     });
 
     expect(result.current.isLoading).toBe(true);

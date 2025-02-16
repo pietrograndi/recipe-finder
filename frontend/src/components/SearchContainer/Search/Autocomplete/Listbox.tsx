@@ -1,6 +1,6 @@
 import { Ingredient, Recipe } from "@/types/interface"
 import styles from './style.module.css';
-import { Suggestion } from "./Suggestion"
+import { Suggestion } from "./Suggestion";
 
 interface SuggestionsProps {
   searchTerm: string
