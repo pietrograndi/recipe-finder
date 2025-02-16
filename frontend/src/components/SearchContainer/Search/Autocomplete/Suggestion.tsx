@@ -34,7 +34,7 @@ export const Suggestion = (props: SuggestionProps) => {
         {matchDescription}
       </span>
       
-      <p aria-hidden="true">
+      <p aria-hidden="true" onClick={() => props.onSelect(props.suggestion, props.type)}>
         {matchList.map(({label, isMatch}, idx) => (
           <span 
             key={`label-${idx}`} 

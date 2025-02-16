@@ -30,6 +30,7 @@ export const Autocomplete = (props: AutocompleteProps) => {
     <div ref={ref}>
       <div
         className={styles.autocomplete}
+        onFocus={() => setShowListbox(true)}
         role="combobox"
         aria-expanded={showListbox}
         aria-haspopup="listbox"
