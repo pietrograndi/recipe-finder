@@ -3,6 +3,8 @@ import cors from '@fastify/cors'
 import { findRecipesAndIngredients } from './routes/searchRoutes'
 import { searchByIngredients } from './routes/recipesByIngredients'
 import { port } from './envConfig'
+import { recipes } from './routes/recipes'
+import { recipesBySlug } from './routes/recipesBySlug'
 
 
 const fastify = Fastify({
@@ -15,12 +17,13 @@ fastify.register(cors, {
 
 
 fastify.get('/', async (request, reply) => {
-  console.log(process.env.BACKEND_PORT)
   return { hello: 'world' }
 })
 
 fastify.register(findRecipesAndIngredients)
 fastify.register(searchByIngredients)
+fastify.register(recipes)
+fastify.register(recipesBySlug)
 
 const start = async () => {
   try {

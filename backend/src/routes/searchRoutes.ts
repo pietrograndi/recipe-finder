@@ -9,7 +9,6 @@ export async function findRecipesAndIngredients(fastify: FastifyInstance) {
     }
 
     try {
-      console.log(query)
       const ingredients = await db('ingredients')
         .select('id', 'ingredient_name as name', 'ingredient_description as description', 'ingredient_image as image')
         .where('ingredient_name', 'ilike', `%${query}%`);
