@@ -5,9 +5,15 @@
   gap: 10px;
   padding-left: 10px;
   padding-right: 10px;
-  border: 2px solid var(--brick);
+  border: 1px solid var(--brick);
   background-color: var(--white);
-  border-radius: 5px;
+  border-radius: 1.4rem;
+  transition: border 0.3s ease;
+  outline: 1px solid var(--cream-400);
+  transition: outline 0.3s ease;
+  &:focus-within {
+    outline: 1px solid var(--brick);
+  }
 }
 
 .clearButton {
@@ -17,11 +23,14 @@
   background-color: transparent;
   border: none;
   padding: 0;
+  padding-right: 0.1rem;
   margin: 0;
   opacity: 1;
   transition: opacity 0.3s ease;
-  s &:hover {
+  opacity: .2;
+  &:hover {
     cursor: pointer;
+    opacity: .8;
   }
   &.hidden {
     opacity: 0;
@@ -38,13 +47,13 @@
   background-color: transparent;
   color: var(--brick);
   font-size: 1.4rem;
-  /* transition: color 0.3s ease; */
   &::placeholder {
     color: var(--brick);
   }
 }
 
 .listbox {
+  margin-top: 1rem;
   position: relative;
   & .listboxContent {
     position: absolute;
@@ -55,7 +64,7 @@
     max-height: 400px;
     border-radius: 1rem;
     background-color: var(--white);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     z-index: 1000;
     border: 1px solid var(--sun);
   }
@@ -77,6 +86,11 @@
   
   & .suggestion:last-child {
     border-bottom: none;
+  }
+  & .notFound {
+    padding: 1rem;
+    text-align: center;
+    color: var(--brick);
   }
 }
 

@@ -23,12 +23,12 @@ export const Listbox = (props: SuggestionsProps) => {
       aria-owns={props.inputId}
     >
       <div className={styles.listboxContent}>
-      {notFound && <div role="status">Nessun risultato trovato</div>}
+      {notFound && <div className={styles.notFound} role="status">Nessun risultato trovato</div>}
       {props.suggestions.ingredients.length > 0 && <section>
         <div className={styles.sectionTitle + ' ' + styles.ingredients}  role="presentation">🥬 Ingredienti</div>
         <div>
           {props.suggestions.ingredients
-          .filter((item,index) => index < 5)
+          .filter((_,index) => index < 5)
           .map((ingredient) => (
             <Suggestion
               key={`ingredient-${ingredient.id}`}
