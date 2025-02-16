@@ -21,7 +21,9 @@ describe('Listbox Component', () => {
     },
     inputId: 'search-input',
     showRecipes: true,
-    onSelect: vi.fn()
+    onSelect: vi.fn(),
+    activeIndex: 0,
+    ingredientsIds: []
   };
 
   it('renders without crashing', () => {

@@ -8,6 +8,7 @@ interface SuggestionProps {
   type: 'ingredient' | 'recipe'
   onSelect: (subject: Ingredient | Recipe, type: 'ingredient' | 'recipe') => void
   searchTerm: string
+  isActive: boolean
 }
 
 export const Suggestion = (props: SuggestionProps) => {
@@ -19,10 +20,13 @@ export const Suggestion = (props: SuggestionProps) => {
     name;
   return (
     <div
-      className={cx(styles.suggestion, { [styles.green]: props.type === 'ingredient' })}
-      tabIndex={-1}
+      className={cx(styles.suggestion, { 
+        [styles.green]: props.type === 'ingredient',
+        [styles.active]: props.isActive 
+      })}
+      tabIndex={props.isActive ? 0 : -1}
       role="option"
-      aria-selected="false"
+      aria-selected={props.isActive}
       onClick={() => props.onSelect(props.suggestion, props.type)}
       onKeyDownCapture={(e) => {
         if (e.key === 'Enter') {

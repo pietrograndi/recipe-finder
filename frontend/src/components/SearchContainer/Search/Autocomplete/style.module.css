@@ -98,17 +98,23 @@
   padding: 10px;
   border-bottom: 1px solid var(--brick);
   transition: background-color 0.3s ease, color 0.3s ease;
-  &:hover {
+  &.active {
+    outline: 2px solid #007bff;
+  }
+  &:hover, &.active {
     background-color: var(--sun);
-    cursor: pointer;
     font-weight: bold;
     &.green {
       background-color: var(--green);
     }
+    & p:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
     & .label, & .description {
       color: var(--brick);
       &.match {
-        /* color: var(--white); */
+        color: var(--white);
       }
     }
   }
@@ -124,7 +130,6 @@
     color: var(--brick);
   }
 }
-
 
 .visuallyHidden {
   position: absolute;
