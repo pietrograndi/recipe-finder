@@ -23,7 +23,7 @@ export const Autocomplete = (props: AutocompleteProps) => {
     const suggestions = [
       ...data.ingredients.filter(i => !props.ingredients.map(ing => ing.id).includes(i.id)),
       ...data.recipes
-    ].slice(0, 10); 
+    ].slice(0, 10);
 
     switch (e.key) {
       case 'ArrowDown':
@@ -44,15 +44,11 @@ export const Autocomplete = (props: AutocompleteProps) => {
           setActiveIndex(-1);
         }
         break;
-      case 'Escape':
-        setShowListbox(false);
-        setActiveIndex(-1);
-        break;
     }
   };
 
   useEffect(() => {
-    setActiveIndex(-1); // Reset active index when search results change
+    setActiveIndex(-1); 
   }, [searchTerm]);
 
   useEffect(() => {
@@ -70,12 +66,23 @@ export const Autocomplete = (props: AutocompleteProps) => {
       <div
         className={styles.autocomplete}
         onFocus={() => setShowListbox(true)}
+        onBlur={() => {
+          setTimeout(() => {
+            if (!ref.current?.contains(document.activeElement)) {
+              setShowListbox(false);
+              setActiveIndex(-1);
+            }
+          }, 200);
+        }}
         role="combobox"
         aria-expanded={showListbox}
         aria-haspopup="listbox"
         aria-controls="listbox"
       >
-        <Input onChange={search} inputId='search-input' />
+        <Input 
+          onChange={search} 
+          inputId='search-input' 
+        />
       </div>
       {(data && showListbox) && <Listbox
         inputId='search-input'
