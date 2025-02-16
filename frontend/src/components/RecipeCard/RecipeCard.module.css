@@ -16,12 +16,18 @@
     justify-content: space-between;
     align-items: center;
     padding: .3rem;
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
   }
   & .recipeMain {
     & h3 {
       cursor: pointer;
       &:hover {
         text-decoration: underline;
+      }
+      @media (max-width: 768px) {
+        font-size: 1.8rem;
       }
     }
     display: flex;
@@ -35,6 +41,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+      @media (max-width: 768px) {
+        font-size: 1.2rem;
+      }
   }
 }
 
@@ -44,7 +53,7 @@
   background-color: transparent;
   
   & svg, & {
-    color: var(--brick);
+    color: #bbb;
     opacity: 0.8;
   }
   &.active svg, &:hover svg {

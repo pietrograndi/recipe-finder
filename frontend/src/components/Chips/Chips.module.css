@@ -10,6 +10,9 @@
   outline: 1px solid var(--cream-400);
   background-color: transparent;
   transition: outline 0.3s ease;
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
   &:has(button:hover) {
     outline: 1px solid var(--brick);
   }

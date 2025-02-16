@@ -15,7 +15,7 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
     <div className={styles.recipeCard}>
       <div className={styles.recipeHeader}>
         <div>
-        pronto meno di 30 min
+        pronto in meno di 30 min
         </div>
         <button
            onClick={() => toggleFavorite(recipe.id)}
@@ -29,7 +29,6 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
             {recipe.name}
           </Link>
         </h3>
-        {recipe.description && <span>{recipe.description}</span>}
         <div className={styles.ingredients}>
           {recipe.ingredients.map((ingredient) => (
             <span key={ingredient.id}>{ingredient.name}</span>

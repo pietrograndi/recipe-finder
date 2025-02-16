@@ -47,6 +47,9 @@
   background-color: transparent;
   color: var(--brick);
   font-size: 1.4rem;
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+  }
   &::placeholder {
     color: var(--brick);
   }
@@ -70,6 +73,9 @@
   }
   & .sectionTitle {
     font-size: 1.2rem;
+    @media (max-width: 768px) {
+      font-size: 1.6rem;
+    }
     padding-left: 1rem;
     color: var(--brick);
     text-align: center;
@@ -98,6 +104,9 @@
   padding: 10px;
   border-bottom: 1px solid var(--brick);
   transition: background-color 0.3s ease, color 0.3s ease;
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
   &.active {
     outline: 2px solid #007bff;
   }
@@ -120,6 +129,9 @@
   }
   & .label {
     font-size: 1.2rem;
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
     &.match {
       font-weight: bold;
     }
@@ -128,7 +140,11 @@
     font-style: italic;
     font-size: 0.9rem;
     color: var(--brick);
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
   }
+  
 }
 
 .visuallyHidden {
