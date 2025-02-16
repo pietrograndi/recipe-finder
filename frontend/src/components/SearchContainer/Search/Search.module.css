@@ -1,6 +1,7 @@
 
 .searchContainer {
   padding: .5rem;
+  margin-bottom: 2rem;
   border-radius: 1.5rem;
   background-color: var(--white);
   & > div {

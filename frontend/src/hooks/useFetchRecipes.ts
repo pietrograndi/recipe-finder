@@ -1,8 +1,8 @@
-import { Recipe } from '@/types/interface';
+import { RecipeWithIngredients } from '@/types/interface';
 import { useEffect, useState } from 'react';
 
 export const useFetchRecipes = (ingredients: string) => {
-  const [data, setData] = useState<Recipe[]>([]);
+  const [data, setData] = useState<RecipeWithIngredients[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -20,7 +20,7 @@ export const useFetchRecipes = (ingredients: string) => {
           throw new Error('Failed to fetch');
         }
 
-        const result: {recipes: Recipe[]} = await response.json();
+        const result: {recipes: RecipeWithIngredients[]} = await response.json();
         setData(result.recipes);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred while fetching recipes');

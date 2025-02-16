@@ -18,8 +18,10 @@ export interface RecipeByIngredients {
   ingredientName: string
 }
 
-export type RecipeResponse = {
+export type RecipeWithIngredients = {
   id:number
-  recipeName: string
+  name: string
+  description: string | null
+  image: string | null
   ingredients: Ingredient[]
-}[]
+}

@@ -1,0 +1,48 @@
+
+.recipeCard {
+  padding: .5rem;
+  background-color: var(--white);
+  border-radius: 1.5rem;
+  border-color: var(--white);
+  border-width: 2px;
+  border-style: solid;
+  transition: border 0.3s ease;
+  &:hover {
+    border-color: var(--sun-400);
+    cursor: pointer;
+  }
+  & .recipeHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .3rem;
+  }
+  & .recipeMain {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--cream-400);
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+  & .ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
+.favButton {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  
+  & svg, & {
+    color: var(--brick);
+    opacity: 0.8;
+  }
+  &.active svg, &:hover svg {
+    color: var(--sun-400);
+    opacity: 1;
+  }
+} 

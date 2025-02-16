@@ -12,18 +12,18 @@ export async function searchByIngredients(fastify: FastifyInstance) {
     
     try {
       const recipesByIngredients = ingredients.length > 0 ? await db('recipe_ingredients')
-        .select('recipe_id as id', 'recipe_name as name')
+        .select('recipe_id as id', 'recipe_name as name', 'recipe_description as description', 'recipe_image as image')
         .join('recipes', 'recipe_ingredients.recipe_id', 'recipes.id')
         .join('ingredients', 'recipe_ingredients.ingredient_id', 'ingredients.id')
         .where('ingredient_id', 'in', ingredientList)
-        .groupBy('recipe_id', 'recipe_name')
+        .groupBy('recipe_id', 'recipe_name', 'recipe_description', 'recipe_image')
         .limit(5) : [];
       
         const recipesWithIngredients = await Promise.all(recipesByIngredients.map(async (recipe) => {
           const ingredientsForRecipe = await db('recipe_ingredients')
             .join('ingredients', 'recipe_ingredients.ingredient_id', 'ingredients.id')
             .where('recipe_id', recipe.id)
-            .select('ingredient_name','ingredient_id');
+            .select('ingredient_name','ingredient_id', 'ingredient_description as description');
           return {
             ...recipe,
             ingredients: ingredientsForRecipe.map(ing => ({
