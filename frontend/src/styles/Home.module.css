@@ -5,7 +5,6 @@
   height: 100vh;
   background-color: var(--background);
   & header {
-    border-bottom: 1px solid var(--foreground);
     background-color: var(--cream-400);
   }
   & main {
@@ -29,7 +28,6 @@
     }
     & main {
       padding-top: 2rem;
-      /* padding: 48px; */
     }
   }
 
@@ -43,11 +41,6 @@
   .page {
     height: 100vh;
     & header {
-      /* padding-left: 40px;
-      padding-right: 40px; */
-    }
-    & main {
-      /* padding: 40px; */
     }
 
   }
@@ -59,9 +52,6 @@
       padding-left: 32px;
       padding-right: 32px;
     }
-    & main {
-      /* padding: 32px; */
-    }
   }
 }
 
@@ -72,9 +62,6 @@
       padding-left: 24px;
       padding-right: 24px;
     }
-    & main {
-      /* padding: 24px; */
-    }
   }
 }
 
@@ -84,9 +71,6 @@
     & header {  
       padding-left: 1rem;
       padding-right: 1rem;
-    }
-    & main {
-      /* padding: .5rem; */
     }
   }
   .center {

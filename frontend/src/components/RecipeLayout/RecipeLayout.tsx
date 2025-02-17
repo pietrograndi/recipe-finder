@@ -2,6 +2,7 @@ import { Ingredient, Recipe } from '@/types/interface';
 import styles from './RecipeLayout.module.css';
 import { FavIcon } from '../icons/favIncon';
 import { useFavorites } from '@/hooks/useFavorites';
+import cx from 'classnames';
 
 interface RecipeLayoutProps {
   recipe: Recipe;
@@ -11,6 +12,8 @@ interface RecipeLayoutProps {
 export const RecipeLayout = ({ recipe, ingredients }: RecipeLayoutProps) => {
   const { toggleFavorite, isFavorite } = useFavorites();
 
+  const isFav = isFavorite(recipe.id);
+
   return (
     <article className={styles.recipeContainer}>
       <header className={styles.recipeHeader}>
@@ -18,7 +21,7 @@ export const RecipeLayout = ({ recipe, ingredients }: RecipeLayoutProps) => {
           <h1>{recipe.name}</h1>
           <button
             onClick={() => toggleFavorite(recipe.id)}
-            className={styles.favoriteButton}
+            className={cx(styles.favoriteButton, isFav && styles.active)}
             aria-label={isFavorite(recipe.id) ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti"}
           >
             <FavIcon />
