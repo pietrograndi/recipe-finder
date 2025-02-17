@@ -18,5 +18,7 @@ export async function seed(knex: Knex): Promise<void> {
         { id:10, ingredient_name: "peperoncino" },
         { id:11, ingredient_name: "bacon" },
         { id:12, ingredient_name: "olio evo" },
+        { id:13, ingredient_name: "ricotta" },
+        { id:14, ingredient_name: "melanzane" },
     ]);
 };

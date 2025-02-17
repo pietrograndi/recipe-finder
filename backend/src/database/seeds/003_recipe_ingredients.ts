@@ -6,7 +6,7 @@ export async function seed(knex: Knex): Promise<void> {
 
     // Inserts seed entries
     await knex("recipe_ingredients").insert([
-        // cacio e pepe
+        // caciopepe
         { recipe_id: 1, ingredient_id: 1 },
         { recipe_id: 1, ingredient_id: 4 },
         { recipe_id: 1, ingredient_id: 5 },
@@ -33,5 +33,12 @@ export async function seed(knex: Knex): Promise<void> {
         { recipe_id: 5, ingredient_id: 9 },
         { recipe_id: 5, ingredient_id: 7 },
         { recipe_id: 5, ingredient_id: 12 },
+        // norma
+        { recipe_id: 6, ingredient_id: 6 },
+        { recipe_id: 6, ingredient_id: 14 },
+        { recipe_id: 6, ingredient_id: 13 },
+        { recipe_id: 6, ingredient_id: 12 },
+        { recipe_id: 6, ingredient_id: 8 },
+        { recipe_id: 6, ingredient_id: 1 },
     ]);
 };
