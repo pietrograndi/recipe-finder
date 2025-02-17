@@ -27,12 +27,19 @@ export const Search = ({ingredients = [], ...props}: SearchProps) => {
   return (
     <section className={styles.searchContainer}>
       <div>
-        <Autocomplete ingredients={ingredients} onSelect={onSelect} />  
+        <Autocomplete
+          ingredients={ingredients}
+          onSelect={onSelect}
+        />
         { ingredients.length > 0 && <div className={styles.ingredientsContainer}>
           Ingredients:  
           <div>
             {ingredients.map((ingredient, index) => (
-              <Chips key={ingredient.id} label={ingredient.name} onDelete={() => handleIngredientDelete(index)}/>
+              <Chips 
+                key={ingredient.id}
+                label={ingredient.name}
+                onDelete={() => handleIngredientDelete(index)}
+              />
             ))}
           </div>
         </div> }
@@ -40,4 +47,3 @@ export const Search = ({ingredients = [], ...props}: SearchProps) => {
     </section>
   )
 };
-  

@@ -1,5 +1,6 @@
 import { Ingredient, Recipe } from '@/types/interface';
 import styles from './RecipeLayout.module.css';
+import homeStyles from '@/styles/Home.module.css';
 import { FavIcon } from '../icons/favIncon';
 import { useFavorites } from '@/hooks/useFavorites';
 import cx from 'classnames';
@@ -15,7 +16,7 @@ export const RecipeLayout = ({ recipe, ingredients }: RecipeLayoutProps) => {
   const isFav = isFavorite(recipe.id);
 
   return (
-    <article className={styles.recipeContainer}>
+    <article className={cx(styles.recipeContainer, homeStyles.center)}>
       <div className={styles.recipeHeader}>
         <div className={styles.titleSection}>
           <h1>{recipe.name}</h1>

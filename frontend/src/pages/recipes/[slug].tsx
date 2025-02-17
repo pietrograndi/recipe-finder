@@ -29,9 +29,7 @@ const RecipePage = (props: { recipe: Recipe & { ingredients: Ingredient[] } }) =
           </div>
         </header>
         <main> 
-          <div className={cx(styles.center)}>
-            <RecipeLayout recipe={props.recipe} ingredients={props.recipe.ingredients} />
-          </div>
+          <RecipeLayout recipe={props.recipe} ingredients={props.recipe.ingredients} />
         </main>
       </div>
     </div>

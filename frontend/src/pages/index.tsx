@@ -31,9 +31,7 @@ export default function Home() {
           </div>
         </header>
         <main> 
-          <div className={cx(styles.center)}>
             <SearchContainer />
-          </div>
         </main>
       </div>
     </>

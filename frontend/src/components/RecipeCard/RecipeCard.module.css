@@ -3,11 +3,11 @@
   background-color: var(--white);
   border-radius: 1.5rem;
   border-color: var(--white);
-  border-width: 2px;
+  border-width: 3px;
   border-style: solid;
   transition: border 0.3s ease;
   
-  &:hover, &:focus-within {
+  &:focus-within {
     border-color: var(--sun-400);
   }
   
