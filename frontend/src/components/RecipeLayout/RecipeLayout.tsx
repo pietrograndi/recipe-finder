@@ -16,7 +16,7 @@ export const RecipeLayout = ({ recipe, ingredients }: RecipeLayoutProps) => {
 
   return (
     <article className={styles.recipeContainer}>
-      <header className={styles.recipeHeader}>
+      <div className={styles.recipeHeader}>
         <div className={styles.titleSection}>
           <h1>{recipe.name}</h1>
           <button
@@ -30,7 +30,7 @@ export const RecipeLayout = ({ recipe, ingredients }: RecipeLayoutProps) => {
         {recipe.description && (
           <p className={styles.description}>{recipe.description}</p>
         )}
-      </header>
+      </div>
 
       <div className={styles.mainContent}>
         <div className={styles.imageSection}>

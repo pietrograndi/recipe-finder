@@ -5,7 +5,11 @@ import cx from 'classnames';
 export const Navigation = () => {
   return (
     <div className={cx(styles.navigation)}>
-      <h1>Recipedia</h1>
+      <div>
+        <Link href="/">
+          logo
+        </Link>
+      </div>
       <nav>
           <Link href="/">Home</Link>
           <Link href="/">About</Link>

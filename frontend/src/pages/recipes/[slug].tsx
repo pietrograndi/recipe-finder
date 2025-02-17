@@ -5,6 +5,7 @@ import styles from '@/styles/Home.module.css';
 import { Geist, Geist_Mono } from 'next/font/google';
 import cx from 'classnames';
 import { RecipeLayout } from "@/components/RecipeLayout";
+import { Navigation } from "@/components/Navigation";
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -22,6 +23,11 @@ const RecipePage = (props: { recipe: Recipe & { ingredients: Ingredient[] } }) =
         <title>{props.recipe.name} - Recipe</title>
       </Head>
       <div className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`} >
+        <header>
+          <div className={cx(styles.center)}>
+            <Navigation />
+          </div>
+        </header>
         <main> 
           <div className={cx(styles.center)}>
             <RecipeLayout recipe={props.recipe} ingredients={props.recipe.ingredients} />

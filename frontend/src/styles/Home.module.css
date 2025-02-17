@@ -5,7 +5,10 @@
   height: 100vh;
   background-color: var(--background);
   & header {
-    background-color: var(--cream-400);
+    background-color: var(--white);
+    border-bottom: 2px solid var(--brick);
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
   & main {
     padding-top: 3rem;

@@ -9,7 +9,7 @@ export const SearchContainer = () => {
   const [ingredientState, dispatch] = useReducer(ingredientReducer, [] as Ingredient[]);
 
   return (
-    <div>
+    <div style={{ padding: '0 1rem' }}>
       <Search ingredients={ingredientState} handleIngredient={dispatch} />
       <RecipeResults ingredients={ingredientState} />
     </div>
