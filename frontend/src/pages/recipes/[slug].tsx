@@ -53,6 +53,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   console.log(recipeData)
   return {
     props: { recipe: recipeData },
+    revalidate: 60 * 60 * 24, // 24 hours
   };
 };
 
