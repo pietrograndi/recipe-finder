@@ -46,7 +46,7 @@ export const RecipeLayout = ({ recipe, ingredients }: RecipeLayoutProps) => {
 
         <div className={styles.contentSection}>
           <section className={styles.ingredientsSection}>
-            <h2>Ingredienti</h2>
+            <h2>Ingredients</h2>
             <ul className={styles.ingredientsList}>
               {ingredients.map((ingredient) => (
                 <li key={ingredient.id} className={styles.ingredientItem}>
@@ -62,7 +62,7 @@ export const RecipeLayout = ({ recipe, ingredients }: RecipeLayoutProps) => {
           </section>
 
           <section className={styles.preparationSection}>
-            <h2>Preparazione</h2>
+            <h2>Preparation</h2>
             <div className={styles.preparationSteps}>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do 

@@ -35,7 +35,7 @@ export const Listbox = (props: SuggestionsProps) => {
       <div className={styles.listboxContent}>
       {notFound && <div className={styles.notFound} role="status">Nessun risultato trovato</div>}
       {filteredIngredients.length > 0 && <section>
-        <div className={styles.sectionTitle + ' ' + styles.ingredients} role="presentation">🥬 Ingredienti</div>
+        <div className={styles.sectionTitle + ' ' + styles.ingredients} role="presentation">🥬 ingredients</div>
         <div>
           {filteredIngredients.map((ingredient, index) => (
             <Suggestion
@@ -50,7 +50,7 @@ export const Listbox = (props: SuggestionsProps) => {
         </div>
       </section>}
       {filteredRecipes.length > 0 && props.showRecipes && <section>
-        <div className={styles.sectionTitle} role="presentation">🍽️ Ricette</div>
+        <div className={styles.sectionTitle} role="presentation">🍽️ recipes</div>
         <div>
           {filteredRecipes.map((recipe, index) => (
             <Suggestion

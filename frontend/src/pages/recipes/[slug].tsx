@@ -42,7 +42,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const recipes = await fetch(`${process.env.BACKEND}/recipes`);
   const recipesData = await recipes.json();
   return {
-    paths: recipesData.map((recipe: Recipe) => ({ params: { slug: recipe.name } })),
+    paths: recipesData.recipes.map((recipe: Recipe) => ({ params: { slug: recipe.name } })),
     fallback: 'blocking',
   };
 };

@@ -14,7 +14,7 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
     <div className={styles.recipeCard}>
       <div className={styles.recipeHeader}>
         <div>
-        pronto in meno di 30 min
+        30 min ~
         </div>
         <button
            onClick={() => toggleFavorite(recipe.id)}

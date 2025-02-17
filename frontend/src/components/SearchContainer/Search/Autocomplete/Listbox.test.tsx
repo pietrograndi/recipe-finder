@@ -43,21 +43,21 @@ describe('Listbox Component', () => {
 
   it('renders ingredients section when ingredients are available', () => {
     render(<Listbox {...mockProps} />);
-    expect(screen.getByText('🥬 Ingredienti')).toBeInTheDocument();
+    expect(screen.getByText('🥬 ingredients')).toBeInTheDocument();
     expect(screen.getByText(/Carota/)).toBeInTheDocument();;
     expect(screen.getByText(/Patata/)).toBeInTheDocument();;
   });
 
   it('renders recipes section when recipes are available and showRecipes is true', () => {
     render(<Listbox {...mockProps} />);
-    expect(screen.getByText('🍽️ Ricette')).toBeInTheDocument();;
+    expect(screen.getByText('🍽️ recipes')).toBeInTheDocument();;
     expect(screen.getByText(/Pasta al pomodoro/)).toBeInTheDocument();;
     expect(screen.getByText(/Pizza margherita/)).toBeInTheDocument();;
   });
 
   it('does not render recipes section when showRecipes is false', () => {
     render(<Listbox {...mockProps} showRecipes={false} />);
-    expect(screen.queryByText('🍽️ Ricette')).toBeNull();
+    expect(screen.queryByText('🍽️ recipes')).toBeNull();
   });
 
   it('limits ingredients suggestions to 5 items', () => {
