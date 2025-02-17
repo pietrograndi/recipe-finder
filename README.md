@@ -41,7 +41,7 @@ The frontend is built with a component-based architecture, focusing on reusabili
 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/recipe-app.git
+git clone https://github.com/pietrograndi/recipe-app.git
 cd recipe-app
 ```
 
@@ -102,3 +102,14 @@ The frontend is tested with Vitest + @testing-librarary stuff
 ```bash
 npm run test
 ```
+
+## The idea
+
+The search input is the starting point of the search, the user can start typing something about the recipe name (eg "no" for "norma"), it could match the "norma" recipe and all the matching ingredients with "no"...(eg "no" for "pinoli" or "peperoncino").  
+
+- if the user chooses a recipe, they will be redirected to the recipe page
+- When the user selects an ingredient, it is added to the list of ingredients and the search is filtered based on the ingredients already in the list.
+
+On the recipe card in the results or on the recipe page the user can add the recipe to the favourites list, the favourites list is managed using the browser's local memory.
+
+All favourite recipes are displayed on the favourites page.
