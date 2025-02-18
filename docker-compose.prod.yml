@@ -18,6 +18,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     restart: always
+    container_name: recipe-finder-backend
     depends_on:
       - db
     environment:

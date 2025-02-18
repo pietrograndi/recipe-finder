@@ -55,7 +55,7 @@ docker compose -f docker-compose.prod.yml up -d
 3. Prepare the database
 
 ```bash
-docker exec -it recipe-finder-backend-1 bash 
+docker exec -it recipe-finder-backend bash 
 npm run migrate
 npm run seed
 exit
